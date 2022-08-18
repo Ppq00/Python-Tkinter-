@@ -1,0 +1,28 @@
+
+
+
+create table kinds_table(
+    kind_code TINYINT,
+    kinds nvarchar(10) NOT NULL,
+    PRIMARY KEY(kind_code)
+);
+
+create table plan_table(
+    plan_code TINYINT,
+    day date NOT NULL,
+    plan nvarchar(255) NOT NULL,
+    kind_code TINYINT  NOT NULL,
+    PRIMARY KEY(plan_code),
+    FOREIGN KEY plan_table(kind_code) REFERENCES kinds_table(kind_code)
+);
+
+
+
+
+INSERT INTO kinds_table(kind_code, kinds) VALUES(1, "学校");
+INSERT INTO kinds_table(kind_code, kinds) VALUES(2, "試験");
+INSERT INTO kinds_table(kind_code, kinds) VALUES(3, "課題");
+INSERT INTO kinds_table(kind_code, kinds) VALUES(4, "行事");
+INSERT INTO kinds_table(kind_code, kinds) VALUES(5, "就活");
+INSERT INTO kinds_table(kind_code, kinds) VALUES(6, "アルバイト");
+INSERT INTO kinds_table(kind_code, kinds) VALUES(7, "旅行");
